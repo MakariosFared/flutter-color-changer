@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_color_changer/home/home_page.dart';
+import 'package:flutter_color_changer/color_changer_app.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const ColorChangerApp(),
+  );
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    );
-  }
-}
-
