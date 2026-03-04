@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_color_changer/core/color_generation.dart';
 
+/// The main page of the Color Changer application.
+///
+/// Displays a random color and its RGB and Hex values.
+/// The background color changes when the user taps anywhere on the screen.
 class HomePage extends StatefulWidget {
+  /// Creates an instance of [HomePage].
   const HomePage({super.key});
 
   @override
@@ -20,12 +25,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double r = _backgroundColor.r;
-    double g = _backgroundColor.g;
-    double b = _backgroundColor.b;
-    String hexColor =
-        '#${_backgroundColor.toARGB32().toRadixString(16).substring(2).toUpperCase()}';
-    Color textColor = (_backgroundColor.computeLuminance() > 0.5)
+    final double r = _backgroundColor.r;
+    final double g = _backgroundColor.g;
+    final double b = _backgroundColor.b;
+    final String hexColor =
+    '#${_backgroundColor
+        .toARGB32()
+        .toRadixString(16)
+        .substring(2)
+        .toUpperCase()}';
+    final Color textColor = (_backgroundColor.computeLuminance() > 0.5)
         ? Colors.black
         : Colors.white;
 
@@ -51,7 +60,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Text(
-                  "RGB: (${r.toStringAsFixed(2)}, ${g.toStringAsFixed(2)}, ${b.toStringAsFixed(2)})",
+                  "RGB: (${r.toStringAsFixed(2)}, "
+                  "${g.toStringAsFixed(2)}, "
+                  "${b.toStringAsFixed(2)})",
                   style: TextStyle(color: textColor),
                 ),
                 Text("Hex: $hexColor", style: TextStyle(color: textColor)),
