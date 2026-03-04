@@ -25,6 +25,9 @@ class _HomePageState extends State<HomePage> {
     double b = _backgroundColor.b;
     String hexColor =
         '#${_backgroundColor.toARGB32().toRadixString(16).substring(2).toUpperCase()}';
+    Color textColor = (_backgroundColor.computeLuminance() > 0.5)
+        ? Colors.black
+        : Colors.white;
 
     return GestureDetector(
       onTap: _changeColor,
@@ -44,12 +47,14 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
+                    color: textColor,
                   ),
                 ),
                 Text(
                   "RGB: (${r.toStringAsFixed(2)}, ${g.toStringAsFixed(2)}, ${b.toStringAsFixed(2)})",
+                  style: TextStyle(color: textColor),
                 ),
-                Text("Hex: $hexColor"),
+                Text("Hex: $hexColor", style: TextStyle(color: textColor)),
               ],
             ),
           ),
