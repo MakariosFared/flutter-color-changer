@@ -24,15 +24,12 @@ class _HomePageState extends State<HomePage> {
       onTap: _changeColor,
       child: Scaffold(
         backgroundColor: _backgroundColor,
-        body: GestureDetector(
-          onTap: _changeColor,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
-            child: Center(
-              child: Text(
-                "Hello there",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
+        body: AnimatedContainer(
+          duration: const Duration(milliseconds: 500),
+          child: Center(
+            child: Text(
+              "Hello there",
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
           ),
         ),
