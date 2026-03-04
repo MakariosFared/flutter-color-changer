@@ -26,10 +26,15 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: _backgroundColor,
         body: AnimatedContainer(
           duration: const Duration(milliseconds: 500),
+          curve: Curves.easeInOut,
+          color: _backgroundColor,
           child: Center(
             child: Text(
               "Hello there",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),
