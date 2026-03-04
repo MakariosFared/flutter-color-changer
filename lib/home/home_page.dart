@@ -20,6 +20,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double r = _backgroundColor.r;
+    double g = _backgroundColor.g;
+    double b = _backgroundColor.b;
+    String hexColor =
+        '#${_backgroundColor.toARGB32().toRadixString(16).substring(2).toUpperCase()}';
+
     return GestureDetector(
       onTap: _changeColor,
       child: Scaffold(
@@ -29,12 +35,22 @@ class _HomePageState extends State<HomePage> {
           curve: Curves.easeInOut,
           color: _backgroundColor,
           child: Center(
-            child: Text(
-              "Hello there",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 16,
+              children: [
+                Text(
+                  "Hello there",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Text(
+                  "RGB: (${r.toStringAsFixed(2)}, ${g.toStringAsFixed(2)}, ${b.toStringAsFixed(2)})",
+                ),
+                Text("Hex: $hexColor"),
+              ],
             ),
           ),
         ),
